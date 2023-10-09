@@ -1,0 +1,9 @@
+{% extends 'tables/base.html' %}
+
+{% block content %}
+    <form method="get" action="track">
+        {{ form }}
+        <input type="submit" value="Построить" name="build"/>
+        <input type="submit" value="Скачать .kml" name="download"/>
+    </form>
+{% endblock %}

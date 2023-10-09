@@ -1,0 +1,65 @@
+
+
+.page-header {
+    background-color:  #2EB8FF;
+    width: 3000px;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+}
+
+.content {
+    width: 3000px;
+    margin-left: 0px;
+}
+
+.col-md-8 h2, .col-md-8 h3, .col-md-8 h4, .col-md-8 h5{
+    font-size: 19pt;
+    display: inline;
+    line-height: 2;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.table {
+	width: 50%;
+	margin-bottom: 20px;
+	border: 5px solid #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-collapse: collapse;
+	outline: 3px solid #2EB8FF;
+	font-size: 15px;
+	background: #fff!important;
+}
+
+.table th {
+	font-weight: bold;
+	padding: 7px;
+	background: #2EB8FF;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #2EB8FF;
+}
+
+.table td {
+	padding: 7px;
+	border: none;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	font-size: 15px;
+}
+
+.pagination {
+  font-size: 18px;
+}

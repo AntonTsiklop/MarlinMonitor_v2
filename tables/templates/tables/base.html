@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+    <head>
+        <title>Marlin-Data</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/tables.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Marlin-Data</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% with request.resolver_match.url_name as url_name %}
+                        {% if url_name == 'main'%}
+                            <h2>Все данные</h2>
+                            <h4>/</h4>
+                            <h3><a href="/tables/permafrost">Данные ММГ</a></h3>
+                            <h4>/</h4>
+                            <h5><a href="/tables/track">Построение трека</a></h5>
+                        {% endif %}
+                        {% if url_name == 'track' %}
+                            <h2><a href="/">Все данные</a></h2>
+                            <h4>/</h4>
+                            <h3><a href="/tables/permafrost">Данные ММГ</a></h3>
+                            <h4>/</h4>
+                            <h5>Построение трека</h5>
+                        {% endif %}
+                        {% if url_name == 'permafrost' %}
+                            <h2><a href="/">Все данные</a></h2>
+                            <h4>/</h4>
+                            <h3>Данные ММГ</h3>
+                            <h4>/</h4>
+                            <h5><a href="/tables/track">Построение трека</a></h5>
+                        {% endif %}
+                    {% endwith %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

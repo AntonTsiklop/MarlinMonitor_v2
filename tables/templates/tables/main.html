@@ -1,0 +1,51 @@
+{% extends 'tables/base.html' %}
+{% load table_filters %}
+{% block content %}
+    <form method="get" action="">
+        {{ form }}
+        <input type="submit" value="Посмотреть" name="here"/>
+        <input type="submit" value="Скачать текущую страницу xlsx" name="xlsx_page"/>
+        <input type="submit" value="Скачать все данные xlsx" name="xlsx_all"/>
+    </form>
+    {% if page_obj %}
+    <table class="table">
+        <thead>
+            <tr>
+                {% for column in columns %}
+                    <th>{{column}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        {% for el in page_obj %}
+            <tbody>
+                <tr>
+                    {% for column in columns %}
+                        {% if column == 'mdatetime' or column == 'datetime_from_email' %}
+                            <td nowrap>{{el|get_col:column|date:"Y-m-d H:i:s"}}</td>
+                        {% else %}
+                            <td>{{el|get_col:column}}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
+{% endblock %}
